@@ -7,7 +7,6 @@ import datetime
 parser = argparse.ArgumentParser()
 parser.add_argument('port')
 parser.add_argument('--delay', type=int, default=3)
-parser.add_argument('--frame', type=int, default=180)
 args = parser.parse_args()
 
 def send(msg, duration=0):
@@ -27,13 +26,16 @@ times = 0
 print(f'[{datetime.datetime.now()}] 启动脚本')
 try:
     while True:
-        # 进入时间设置界面
+        # 人物移动
         send('LX MAX', 3)
         sleep(0.5)
         send('LX MIN', 3.07)
         sleep(0.5)
+        # 调整角度
         send('LY MIN', 0.1)
         sleep(0.5)
+
+        # 取蛋
         send('Button A', 0.1)
         sleep(0.8)
         send('Button A', 0.1)
