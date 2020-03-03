@@ -21,8 +21,8 @@ def send(msg, duration=0):
 ser = serial.Serial(args.port, 9600)
 
 print(f'[{datetime.datetime.now()}] {args.delay}秒延时（--delay参数设定）')
-sleep(args.delay)
 send('Button LCLICK', 0.1)
+sleep(args.delay)
 date = 1
 
 print(f'[{datetime.datetime.now()}] 启动脚本')

@@ -20,8 +20,8 @@ def send(msg, duration=0):
 ser = serial.Serial(args.port, 9600)
 
 print(f'[{datetime.datetime.now()}] {args.delay}秒延时（--delay参数设定）')
-sleep(args.delay)
 send('Button LCLICK', 0.1)
+sleep(args.delay)
 forward_days = 0
 
 print(f'[{datetime.datetime.now()}] 启动脚本')
@@ -123,15 +123,15 @@ try:
         send('Button A', 0.1)
         sleep(1.5)
 
-        # 获取瓦特
-        send('Button A', 0.1)
-        sleep(0.8)
-        send('Button A', 0.1)
-        sleep(0.8)
-        send('Button A', 0.1)
-        sleep(2.5)
-        send('Button B', 0.1)
-        sleep(2)
+        # # 获取瓦特
+        # send('Button A', 0.1)
+        # sleep(0.8)
+        # send('Button A', 0.1)
+        # sleep(0.8)
+        # send('Button A', 0.1)
+        # sleep(2.5)
+        # send('Button B', 0.1)
+        # sleep(2)
 
         # 保存进度
         send('Button X', 0.1)
