@@ -41,17 +41,18 @@ try:
         if times % 5 == 0:
             # 拒蛋
             send('Button B', 0.1)
+            sleep(0.8)
+            send('Button B', 0.1)
         else:
             send('Button A', 0.1)
-
-        sleep(0.8)
-        delay = 0
-        while delay < 8:
-            send('Button B', 0.1)
-            sleep(0.9)
-            delay = delay + 1
-        times = times + 1
+            sleep(0.8)
+            delay = 0
+            while delay < 8:
+                send('Button B', 0.1)
+                sleep(0.9)
+                delay = delay + 1
         sleep(1)
+        times = times + 1
         
 except KeyboardInterrupt:
     send('RELEASE')
