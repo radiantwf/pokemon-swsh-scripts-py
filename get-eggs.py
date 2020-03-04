@@ -38,12 +38,12 @@ try:
         # 取蛋
         send('Button A', 0.1)
         sleep(0.8)
-        if times % 5 == 0:
+        if times % 5 == 4:
             # 拒蛋
             send('Button B', 0.1)
             sleep(0.8)
             send('Button B', 0.1)
-            sleep(0.8)
+            sleep(0.5)
             send('Button B', 0.1)
         else:
             send('Button A', 0.1)
