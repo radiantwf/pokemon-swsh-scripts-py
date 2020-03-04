@@ -38,7 +38,7 @@ try:
         # 取蛋
         send('Button A', 0.1)
         sleep(0.8)
-        if times % 5 == 4:
+        if times % 8 == 4:
             # 拒蛋
             send('Button B', 0.1)
             sleep(0.8)
