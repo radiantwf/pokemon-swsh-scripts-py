@@ -1,6 +1,7 @@
 import argparse
 import serial
 import time
+import math
 from time import sleep
 import datetime
 
@@ -15,11 +16,11 @@ parser.add_argument('--max-col', type=int, default=5)
 args = parser.parse_args()
 
 if args.flamebody:
-    steps = 257 * args.cycles / 2
-    cycles = int(args.cycles / 2)
+    steps = math.ceil(257 * args.cycles / 2)
+    cycles = math.ceil(args.cycles / 2)
 else:
     steps = 257 * args.cycles
-    cycles = int(args.cycles)
+    cycles = args.cycles
 
 def send(msg, duration=0):
     # now = datetime.datetime.now()
@@ -159,8 +160,10 @@ try:
                 sleep(1)
 
         # 调整人物位置
-        send('LX MIN', 1.5)
+        send('LX MIN', 3.2)
         sleep(0.5)
+        send('LY MIN', 0.3)
+        sleep(0.2)
 
         # 判断是否完成
         if box > args.max_box or (box == args.max_box and col >= args.max_col):
