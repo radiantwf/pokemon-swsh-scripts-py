@@ -43,6 +43,8 @@ try:
             send('Button B', 0.1)
             sleep(0.8)
             send('Button B', 0.1)
+            sleep(0.8)
+            send('Button B', 0.1)
         else:
             send('Button A', 0.1)
             sleep(0.8)
