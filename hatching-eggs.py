@@ -33,17 +33,18 @@ def send(msg, duration=0):
 # 选项卡界面 把【宝可梦】图标调整到第一个位置，并把光标移动到【宝可梦】处
 # 同行宝可梦带满，并且要孵蛋的箱子起始列必须全部为空的状态
 
+ser = serial.Serial(args.port, 9600)
 
 print(f'[{datetime.datetime.now()}] {args.delay}秒延时（--delay参数设定）')
 print(f'[{datetime.datetime.now()}] 孵化周期：{args.cycles}，孵化步数：{steps}')
 print(f'[{datetime.datetime.now()}] 起始列：{args.init_col}，终止箱子数：{args.max_box}，终止列：{args.max_col}')
-
-ser = serial.Serial(args.port, 9600)
 send('Button LCLICK', 0.1)
 sleep(args.delay)
-col = args.init_col
-
+send('Button LCLICK', 0.1)
+sleep(1)
 print(f'[{datetime.datetime.now()}] 启动脚本')
+
+col = args.init_col
 try:
     box = 0
     while True:
@@ -164,6 +165,33 @@ try:
         sleep(0.5)
         send('LY MIN', 0.3)
         sleep(0.2)
+
+        if col == 0:
+            print(f'[{datetime.datetime.now()}] 脚本运行中，孵蛋到第{box}箱，共{args.max_box}箱')
+
+        if box % 3 == 2:
+            # 保存进度
+            send('Button X', 0.1)
+            sleep(1.5)
+            send('Button R', 0.1)
+            sleep(1.5)
+            send('Button A', 0.1)
+            sleep(4)
+            # 切换互联网，防止副机强制退出游戏
+            send('Button Y', 0.1)
+            sleep(1)
+            send('Button START', 0.1)
+            sleep(30)
+            send('Button A', 0.1)
+            sleep(1)
+            send('Button START', 0.1)
+            sleep(0.5)
+            send('Button A', 0.1)
+            sleep(5)
+            send('Button B', 0.1)
+            sleep(0.5)
+            send('Button B', 0.1)
+            sleep(1.5)
 
         # 判断是否完成
         if box > args.max_box or (box == args.max_box and col >= args.max_col):

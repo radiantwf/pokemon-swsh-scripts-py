@@ -21,11 +21,30 @@ ser = serial.Serial(args.port, 9600)
 print(f'[{datetime.datetime.now()}] {args.delay}秒延时（--delay参数设定）')
 send('Button LCLICK', 0.1)
 sleep(args.delay)
-times = 0
-
+send('Button LCLICK', 0.1)
+sleep(1)
 print(f'[{datetime.datetime.now()}] 启动脚本')
+
+times = 0
 try:
     while True:
+        if times % 100 == 99:
+            # 切换互联网，防止副机强制退出游戏
+            send('Button Y', 0.1)
+            sleep(1)
+            send('Button START', 0.1)
+            sleep(30)
+            send('Button A', 0.1)
+            sleep(1)
+            send('Button START', 0.1)
+            sleep(0.5)
+            send('Button A', 0.1)
+            sleep(5)
+            send('Button B', 0.1)
+            sleep(0.5)
+            send('Button B', 0.1)
+            sleep(1.5)
+
         # 人物移动
         send('LX MAX', 3)
         sleep(0.5)
@@ -55,9 +74,11 @@ try:
                 delay = delay + 1
         sleep(1)
         times = times + 1
+        if times % 10 == 0:
+            print(f'[{datetime.datetime.now()}] 脚本运行中，已执行了{times}次取蛋动作')
         
 except KeyboardInterrupt:
     send('RELEASE')
 
-print(f'[{datetime.datetime.now()}] 脚本运行结束，执行了{times}次取蛋动作')
+print(f'[{datetime.datetime.now()}] 脚本运行结束，共执行了{times}次取蛋动作')
 ser.close()
