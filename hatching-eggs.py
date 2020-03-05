@@ -167,31 +167,30 @@ try:
         sleep(0.2)
 
         if col == 0:
-            print(f'[{datetime.datetime.now()}] 脚本运行中，孵蛋到第{box}箱，共{args.max_box}箱')
-
-        if box % 3 == 2:
-            # 保存进度
-            send('Button X', 0.1)
-            sleep(1.5)
-            send('Button R', 0.1)
-            sleep(1.5)
-            send('Button A', 0.1)
-            sleep(4)
-            # 切换互联网，防止副机强制退出游戏
-            send('Button Y', 0.1)
-            sleep(1)
-            send('Button START', 0.1)
-            sleep(30)
-            send('Button A', 0.1)
-            sleep(1)
-            send('Button START', 0.1)
-            sleep(0.5)
-            send('Button A', 0.1)
-            sleep(5)
-            send('Button B', 0.1)
-            sleep(0.5)
-            send('Button B', 0.1)
-            sleep(1.5)
+            print(f'[{datetime.datetime.now()}] 脚本运行中，孵蛋到第{box}箱，共{args.max_box}箱，{args.max_col}列')
+            if box % 3 == 2:
+                # 保存进度
+                send('Button X', 0.1)
+                sleep(1.5)
+                send('Button R', 0.1)
+                sleep(1.5)
+                send('Button A', 0.1)
+                sleep(4)
+                # 切换互联网，防止副机强制退出游戏
+                send('Button Y', 0.1)
+                sleep(1)
+                send('Button START', 0.1)
+                sleep(30)
+                send('Button A', 0.1)
+                sleep(1)
+                send('Button START', 0.1)
+                sleep(0.5)
+                send('Button A', 0.1)
+                sleep(5)
+                send('Button B', 0.1)
+                sleep(0.5)
+                send('Button B', 0.1)
+                sleep(1.5)
 
         # 判断是否完成
         if box > args.max_box or (box == args.max_box and col >= args.max_col):
