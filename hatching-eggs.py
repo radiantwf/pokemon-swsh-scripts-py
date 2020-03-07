@@ -180,7 +180,7 @@ try:
                 send('Button Y', 0.1)
                 sleep(1)
                 send('Button START', 0.1)
-                sleep(30)
+                sleep(60)
                 send('Button A', 0.1)
                 sleep(1)
                 send('Button START', 0.1)
