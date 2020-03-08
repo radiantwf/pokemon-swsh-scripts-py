@@ -161,7 +161,7 @@ try:
                 sleep(1)
 
         # 调整人物位置
-        send('LX MIN', 3.2)
+        send('LX MIN', 3.8)
         sleep(0.5)
         send('LY MIN', 0.3)
         sleep(0.2)
