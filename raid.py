@@ -51,7 +51,9 @@ try:
         sleep(8)
         send('Button START', 0.1)
         sleep(1)
-        # 设置密码1122
+        # 设置密码2233
+        send('LX MAX', 0.1)
+        sleep(0.5)
         send('Button A', 0.1)
         sleep(0.4)
         send('Button A', 0.1)
@@ -71,7 +73,7 @@ try:
         send('Button A', 0.1)
         sleep(10)
         send('LY Min', 0.1)
-        sleep(60)
+        sleep(90)
 
         # 开始
         for num in range(0,20):
