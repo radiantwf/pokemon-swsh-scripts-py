@@ -117,7 +117,7 @@ try:
             sleep(0.08)
             send('Button A', 0.08)
             sleep(0.3)
-            time = time + 1
+            times = times + 1
             date = date + 1
         
         # 返回游戏
