@@ -108,7 +108,7 @@ try:
         sleep(2)
 
         send('Button A', 0.1)
-        sleep(1)
+        sleep(1.5)
 
         # 取消对战
         send('Button B', 0.1)

@@ -125,7 +125,7 @@ try:
         sleep(2)
 
         send('Button A', 0.1)
-        sleep(1)
+        sleep(1.5)
 
         if times > 1 and date == 2:
             # 保存进度
