@@ -37,11 +37,10 @@ try:
         sleep(6)
 
         for times in range(0, 4): 
+            # 进入团战选择界面
             if times == 0 or date == 1:
                 send('Button A', 0.1)
                 sleep(1.5)
-                send('Button A', 0.1)
-                sleep(3)
             else:
                 # 获取瓦特
                 send('Button A', 0.1)
@@ -50,10 +49,11 @@ try:
                 sleep(0.8)
                 send('Button A', 0.1)
                 sleep(1.5)
+            if times != 3:
+                # 点击 大家一起挑战
                 send('Button A', 0.1)
                 sleep(3)
 
-            if times != 3:
                 # 进入主菜单
                 send('Button HOME', 0.1)
                 sleep(2)
@@ -112,14 +112,14 @@ try:
                 date = date + 1
                 if date > 30 :
                     date = 1
-                    time = time - 1
+                    times = times - 1
                 # 返回游戏
                 send('Button HOME', 0.1)
                 sleep(2)
 
                 send('Button A', 0.1)
                 sleep(1)
-                
+
                 # 取消对战
                 send('Button B', 0.1)
                 sleep(1)
