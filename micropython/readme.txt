@@ -58,34 +58,9 @@ Confirm password: ******
 Changes will be activated after reboot
 Would you like to reboot now? (y/n) y
 
-import network
-
-
-ap(ssd="micropython-esp32-wf", pwd="radiantwf")
-connect(ssd="NETGERR-JY", pwd="19840618")
-
-wifi.py
-import network
-def connect(ssd,pwd,force=False):
-    sta_if = network.WLAN(network.STA_IF)
-    if force or not sta_if.isconnected():
-        if sta_if.isconnected():
-            sta_if.disconnect()
-        print("connecting to network...")
-        sta_if.active(True)
-        sta_if.connect(ssd, pwd) 
-    if sta_if.isconnected(): 
-        print("network config:", sta_if.ifconfig())
-        return True
-    return False
-def ap(ssd,pwd='',active=1):
-    ap=network.WLAN(network.AP_IF)
-    ap.active(active)
-    if pwd=='':
-        ap.config(essid=ssd, authmode=network.AUTH_OPEN)
-        return
-    ap.config(essid=ssd, authmode=network.AUTH_WPA_WPA2_PSK, password=pwd)
-
+import wifi
+wifi.ap(ssd="micropython-esp32-wf", pwd="radiantwf")
+wifi.connect(ssd="NETGERR-JY", pwd="19840618")
 
 
 串口

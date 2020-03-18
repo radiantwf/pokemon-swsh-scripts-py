@@ -1,20 +1,20 @@
 from machine import UART
 from time import sleep
 import datetime
-print(datetime.now())
+
 def send(uart, msg, duration=0):
-    uart.write(f'{msg}\r\n'.encode('utf-8'))
+    uart.write("%s\r\n"%(msg))
     sleep(duration)
     uart.write(b'RELEASE\r\n')
 
 def raid(delay=3):
     uart = UART(2, baudrate=115200, rx=13,tx=12,timeout=10)
-    print(f'[{datetime.now()}] {delay}秒延时（--delay参数设定）')
+    print("[%s] %d秒延时（--delay参数设定）" % (datetime.now(),delay))
     send('Button LCLICK', 0.1)
     sleep(delay)
     send('Button LCLICK', 0.1)
     sleep(1)
-    print(f'[{datetime.now()}] 启动脚本')
+    print("[%s] 启动脚本" % (datetime.now()))
 
     times = 0
     try:
@@ -80,7 +80,7 @@ def raid(delay=3):
             sleep(5)
 
             times = times + 1
-            print(f'[{datetime.now()}] 脚本运行中，已开启了{times}次团战')
+            print("[%s] 脚本运行中，已开启了%d次团战" % (datetime.now(),times))
             
     except KeyboardInterrupt:
         send('RELEASE')
