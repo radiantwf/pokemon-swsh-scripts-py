@@ -34,7 +34,7 @@ try:
         send('Button A', 0.1)
         sleep(20)
         send('Button A', 0.1)
-        sleep(6)
+        sleep(6.5)
 
         for times in range(0, 4): 
             # 进入团战选择界面

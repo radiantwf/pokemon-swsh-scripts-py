@@ -34,7 +34,7 @@ try:
         send('Button A', 0.1)
         sleep(20)
         send('Button A', 0.1)
-        sleep(6)
+        sleep(6.5)
 
         # 连接网络
         send('Button Y', 0.1)
