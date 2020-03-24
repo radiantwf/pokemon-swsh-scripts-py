@@ -61,7 +61,7 @@ Would you like to reboot now? (y/n) y
 import wifi
 wifi.ap(ssd="micropython-esp32-wf", pwd="radiantwf")
 wifi.connect(ssd="NETGERR-JY", pwd="19840618")
-
+sta_if.connect("WangFeng", "radiantwf") 
 
 串口
 
