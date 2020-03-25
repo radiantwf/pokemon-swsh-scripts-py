@@ -24,7 +24,7 @@ def raid(delay=3):
             send(uart,'Button A', 0.1)
             sleep(1.5)
             send(uart,'Button A', 0.1)
-            sleep(20)
+            sleep(15)
             send(uart,'Button A', 0.1)
             sleep(6.5)
 
