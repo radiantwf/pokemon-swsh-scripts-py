@@ -56,23 +56,24 @@ def enterTimeSetting(uart):
     send(uart,'LY MAX', 0.05)
     sleep(0.05)
 
-def firstAddDate(uart):
+def firstAddDate(uart,day):
     # 进入设置界面
     send(uart,'Button A', 0.05)
     sleep(0.5)
 
     # 首次修改日期
-    send('Button A', 0.05)
+    send(uart,'Button A', 0.05)
     sleep(0.05)
-    send('Button A', 0.05)
+    send(uart,'Button A', 0.05)
     sleep(0.05)
-    send('LY MIN', 0.05)
+    send(uart,'LY MIN', 0.05)
     sleep(0.05)
-    send('Button A', 0.05)
+    send(uart,'Button A', 0.05)
     sleep(0.05)
-    send('Button A', 0.05)
+    send(uart,'Button A', 0.05)
     sleep(0.05)
-    send('Button A', 0.05)
+    send(uart,'Button A', 0.05)
     sleep(0.05)
-    send('Button A', 0.05)
+    send(uart,'Button A', 0.05)
     sleep(0.3)
+    day[0] += 1
