@@ -1,20 +1,20 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def threeDaysForwardAndRaid(second=3.0):
+def threeDaysForwardAndRaid(isSecondary=True,second=3.0):
     date = 1
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,second)
 
         while(True):
-            poke_swsh_common.openGame(uart)
+            poke_swsh_common.openGame(uart,isSecondary)
 
             for times in range(0, 4): 
-                if time == 0:
+                if times == 0:
                     poke_swsh_common.gotoRaid(uart,isOnline=False,hasWatts=False)
-                else if times == 3:
-                    poke_swsh_common.online(uart)
+                elif times == 3:
+                    poke_swsh_common.onlineModel(uart)
                     poke_swsh_common.gotoRaid(uart,isOnline=True,hasWatts=True)
                 else:
                     poke_swsh_common.gotoRaid(uart,isOnline=False,hasWatts=True)

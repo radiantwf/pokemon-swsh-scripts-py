@@ -16,8 +16,7 @@ def daysForward(frames=1000,second=3.0):
                 poke_swsh_common.returnGame(uart)
                 poke_swsh_common.save(uart)
                 poke_swsh_common.gotoHome(uart)
-                poke_swsh_common.gotoDatetimeSettingFromHome(uart)
-            
+            poke_swsh_common.gotoDatetimeSettingFromHome(uart)
             poke_swsh_common.initialAddOneDay(uart)
             date += 1
             if date > 30:

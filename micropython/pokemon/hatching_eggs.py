@@ -1,7 +1,7 @@
 import poke_swsh_common, datetime, math
 from time import sleep
 
-def hatchingEggs(second=3,initCol=0,maxBox=0,maxCol=5,eggCycle=20,flamebody=True):
+def hatchingEggs(initCol=0, maxBox=0, maxCol=5, eggCycle=20, flamebody=True, isSecondary=True, second=3):
     if flamebody:
         steps = math.ceil(257.0 * eggCycle / 2.0)
         cycles = math.ceil(eggCycle / 2.0)
@@ -140,6 +140,8 @@ def hatchingEggs(second=3,initCol=0,maxBox=0,maxCol=5,eggCycle=20,flamebody=True
                 if box % 3 == 2:
                     # 保存进度
                     poke_swsh_common.save(uart)
+                    if isSecondary:
+                        poke_swsh_common.switchNetMode(uart)
 
             # 判断是否完成
             if box > maxBox or (box == maxBox and col >= maxCol):

@@ -1,12 +1,14 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def getEggs(second=3):
+def getEggs(isSecondary=True,second=3):
     times = 0
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,second)
         while True:
+            if isSecondary and (times % 150 == 149):
+                poke_swsh_common.switchNetMode(uart)
             # 人物移动
             poke_swsh_common.send(uart,'LX MAX', 3)
             sleep(0.5)

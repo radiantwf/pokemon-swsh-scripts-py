@@ -111,7 +111,7 @@ def raid(uart):
         sleep(1)
 
 # 切换到互联网模式
-def online(uart):
+def onlineModel(uart):
     send(uart,'Button Y', 0.1)
     sleep(1)
     send(uart,'Button START', 0.1)
@@ -122,7 +122,7 @@ def online(uart):
     sleep(1)
 
 # 切换到本地模式
-def offline(uart):
+def localModel(uart):
     send(uart,'Button Y', 0.1)
     sleep(1)
     send(uart,'Button START', 0.1)
@@ -133,6 +133,23 @@ def offline(uart):
     sleep(0.5)
     send(uart,'Button B', 0.1)
     sleep(1)
+
+# 切换互联网，防止副机强制退出游戏
+def switchNetMode(uart):
+    send(uart,'Button Y', 0.1)
+    sleep(1)
+    send(uart,'Button START', 0.1)
+    sleep(60)
+    send(uart,'Button A', 0.1)
+    sleep(1)
+    send(uart,'Button START', 0.1)
+    sleep(0.5)
+    send(uart,'Button A', 0.1)
+    sleep(5)
+    send(uart,'Button B', 0.1)
+    sleep(0.5)
+    send(uart,'Button B', 0.1)
+    sleep(1.5)
 
 # 进入时间设置界面
 def gotoDatetimeSettingFromHome(uart):

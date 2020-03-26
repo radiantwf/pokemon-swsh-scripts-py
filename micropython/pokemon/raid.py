@@ -1,13 +1,13 @@
 import poke_swsh_common, datetime
 
-def raid(second=3):
+def raid(isSecondary=True,second=3):
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,second)
         times = 0
         while True:
-            poke_swsh_common.openGame(uart)
-            poke_swsh_common.online(uart)
+            poke_swsh_common.openGame(uart,isSecondary=isSecondary)
+            poke_swsh_common.onlineModel(uart)
             poke_swsh_common.gotoRaid(uart)
             poke_swsh_common.setRaidPassword(uart)
             poke_swsh_common.waitForRaid(uart)
