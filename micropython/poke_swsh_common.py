@@ -74,7 +74,7 @@ def gotoRaid(uart, isOnline=True, hasWatts=False):
     sleep(2.5) 
 
 # 设置团战密码2233
-def setRaidPassword(uart)
+def setRaidPassword(uart):
     send(uart,'Button START', 0.1)
     sleep(1)
     # 设置密码2233
@@ -96,7 +96,7 @@ def setRaidPassword(uart)
     sleep(1)
 
 # 开启团战并等待其他玩家加入
-def waitForRaid(uart)
+def waitForRaid(uart):
     # 大家一起挑战
     send(uart,'Button A', 0.1)
     sleep(10)
@@ -105,13 +105,13 @@ def waitForRaid(uart)
     sleep(90)
 
 # 进行团战
-def raid(uart)
+def raid(uart):
     for num in range(0,20):
         send(uart,'Button A', 0.1)
         sleep(1)
 
 # 切换到互联网模式
-def online(uart)
+def online(uart):
     send(uart,'Button Y', 0.1)
     sleep(1)
     send(uart,'Button START', 0.1)
@@ -122,7 +122,7 @@ def online(uart)
     sleep(1)
 
 # 切换到本地模式
-def offline(uart)
+def offline(uart):
     send(uart,'Button Y', 0.1)
     sleep(1)
     send(uart,'Button START', 0.1)
