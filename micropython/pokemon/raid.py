@@ -1,6 +1,6 @@
 import poke_swsh_common, datetime
 
-def raid(delay=3):
+def raid(second=3):
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,second)

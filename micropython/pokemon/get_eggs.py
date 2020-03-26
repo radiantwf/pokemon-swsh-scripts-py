@@ -1,7 +1,7 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def getEggs(delay=3):
+def getEggs(second=3):
     times = 0
     uart = poke_swsh_common.uart()
     try:

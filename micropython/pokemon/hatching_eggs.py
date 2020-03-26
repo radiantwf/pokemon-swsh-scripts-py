@@ -1,7 +1,7 @@
 import poke_swsh_common, datetime, math
 from time import sleep
 
-def hatchingEggs(delay=3,initCol=0,maxBox=0,maxCol=5,eggCycle=20,flamebody=True):
+def hatchingEggs(second=3,initCol=0,maxBox=0,maxCol=5,eggCycle=20,flamebody=True):
     if flamebody:
         steps = math.ceil(257.0 * eggCycle / 2.0)
         cycles = math.ceil(eggCycle / 2.0)
@@ -14,6 +14,7 @@ def hatchingEggs(delay=3,initCol=0,maxBox=0,maxCol=5,eggCycle=20,flamebody=True)
     print("[%s] 起始列：%d，终止箱子数：%d，终止箱子数：%d，终止列：%d" % (datetime.now(),initCol,maxBox,maxCol))
     uart = poke_swsh_common.uart()
     try:
+        poke_swsh_common.delay(uart,second)
         while True:
             # 进入盒子
             poke_swsh_common.send(uart,'Button X', 0.1)
