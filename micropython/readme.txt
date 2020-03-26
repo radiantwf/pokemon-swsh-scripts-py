@@ -60,56 +60,5 @@ Would you like to reboot now? (y/n) y
 
 import wifi
 wifi.ap(ssd="micropython-esp32-wf", pwd="radiantwf")
-wifi.connect(ssd="NETGERR-JY", pwd="19840618")
-sta_if.connect("WangFeng", "radiantwf") 
-
-串口
-
-UART构造器：
-ESP32自身只有两个UART资源
-导入UART 模块：from machine import UART
-
-UART对象的构造器函数：UART(id, baudrate, bits, parity, rx, tx, stop, timeout)
-
-id : 串口编号：ESP32的UART资源只有两个， id有效取值范围为1,2
-bandrate: 波特率(时钟频率)：常用波特率为：9600 （默认），115200，信息接受双方的波特率必须一致，否则会乱码。
-bits：单个字节的位数(比特数)：8 (默认)，7，9
-parity： 校验方式：None 不进行校验（默认），0 偶校验，1 奇校验
-rx：接收口的GPIO编号
-tx：发送口的GPIO编号
-stop: 停止位个数：1 （默认），2
-timerout: 超时时间：取值范围： 0 < timeout ≤ 2147483647
-
-from machine import UART
-uart = UART(2, baudrate=115200, rx=13,tx=12,timeout=10)
-
-字符串读写：
-
-uart.read(10)       # read 10 characters, returns a bytes object
-                    # 读入10个字符， 返回一个比特对象
-
-uart.read()         # read all available characters
-                    # 读取所有的有效字符
-
-uart.readline()     # read a line
-                    # 读入一行
-
-uart.readinto(buf)  # read and store into the given buffer
-                    # 读入并且保存在缓存中
-
-uart.write('abc')   # write the 3 characters
-                    # 向串口写入3个字符abc
-
-字符读写：
-
-uart.readchar()     # read 1 character and returns it as an integer
-                    # 读入一个字符
-
-uart.writechar(42)  # write 1 character
-                    # 写入ASCALL码为42的字符
-
-uart.writechar(ord('*')) # 等同于uart.writechar(42)
-
-检测串口是否有数据：
-
-uart.any()          # returns the number of characters waiting
+wifi.connect("NETGERR-JY", "19840618")
+wifi.connect("WangFeng", "radiantwf") 

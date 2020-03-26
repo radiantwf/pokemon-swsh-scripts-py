@@ -28,22 +28,22 @@ print(f'[{datetime.datetime.now()}] 启动脚本')
 times = 0
 try:
     while True:
-        if times % 150 == 149:
-            # 切换互联网，防止副机强制退出游戏
-            send('Button Y', 0.1)
-            sleep(1)
-            send('Button START', 0.1)
-            sleep(60)
-            send('Button A', 0.1)
-            sleep(1)
-            send('Button START', 0.1)
-            sleep(0.5)
-            send('Button A', 0.1)
-            sleep(5)
-            send('Button B', 0.1)
-            sleep(0.5)
-            send('Button B', 0.1)
-            sleep(1.5)
+        # if times % 150 == 149:
+        #     # 切换互联网，防止副机强制退出游戏
+        #     send('Button Y', 0.1)
+        #     sleep(1)
+        #     send('Button START', 0.1)
+        #     sleep(60)
+        #     send('Button A', 0.1)
+        #     sleep(1)
+        #     send('Button START', 0.1)
+        #     sleep(0.5)
+        #     send('Button A', 0.1)
+        #     sleep(5)
+        #     send('Button B', 0.1)
+        #     sleep(0.5)
+        #     send('Button B', 0.1)
+        #     sleep(1.5)
 
         # 人物移动
         send('LX MAX', 3)
