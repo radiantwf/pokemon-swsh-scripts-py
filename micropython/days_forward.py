@@ -1,8 +1,8 @@
 import poke_swsh_common, datetime
 
-def daysForwart(frames=1000,second=3.0):
+def daysForward(frames=1000,second=3.0):
     times = 0
-    day = 1
+    date = 1
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,second)
@@ -19,9 +19,9 @@ def daysForwart(frames=1000,second=3.0):
                 poke_swsh_common.gotoDatetimeSettingFromHome(uart)
             
             poke_swsh_common.initialAddOneDay(uart)
-            day += 1
-            if day > 30:
-                day = 1
+            date += 1
+            if date > 30:
+                date = 1
             else:
                 times += 1
 
@@ -29,9 +29,9 @@ def daysForwart(frames=1000,second=3.0):
                 if times >= frames:
                     break
                 poke_swsh_common.followingAddOneDay(uart)
-                day += 1
-                if day > 30:
-                    day = 1
+                date += 1
+                if date > 30:
+                    date = 1
                 else:
                     times += 1
 
