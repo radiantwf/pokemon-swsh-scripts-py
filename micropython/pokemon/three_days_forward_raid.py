@@ -1,8 +1,7 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def threeDaysForwardAndRaid(isSecondary=True,second=3.0):
-    date = 1
+def threeDaysForwardAndRaid(date=1, maxDate=30, isSecondary=True, second=3.0):
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,second)
@@ -29,7 +28,7 @@ def threeDaysForwardAndRaid(isSecondary=True,second=3.0):
                     poke_swsh_common.initialAddOneDay(uart)
 
                     date = date + 1
-                    if date > 30 :
+                    if date > maxDate :
                         date = 1
                         times = times - 1
                     

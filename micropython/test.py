@@ -2,13 +2,13 @@ import ntptime
 ntptime.settime()
 
 import days_forward
-days_forward.daysForward(32446)
+days_forward.daysForward(frames=32446,date=1,maxDate=30,)
 
 import three_days_forward
-three_days_forward.threeDaysForward(isSecondary=True)
+three_days_forward.threeDaysForward(date=1,maxDate=30,isSecondary=True)
 
 import three_days_forward_raid
-three_days_forward_raid.threeDaysForwardAndRaid(isSecondary=True)
+three_days_forward_raid.threeDaysForwardAndRaid(date=1,maxDate=30,isSecondary=True)
 
 import get_eggs
 get_eggs.getEggs(isSecondary=True)
