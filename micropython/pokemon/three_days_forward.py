@@ -9,8 +9,10 @@ def threeDaysForward(date=1, maxDate=30, isSecondary=True, second=3.0):
         while(True):
             poke_swsh_common.openGame(uart,isSecondary)
 
-            for times in range(0, 4): 
-                if times == 0:
+            times = 0
+            invalidDate = False
+            while(times < 4): 
+                if (times == 0) or invalidDate:
                     poke_swsh_common.gotoRaid(uart,isOnline=False,hasWatts=False)
                 else:
                     poke_swsh_common.gotoRaid(uart,isOnline=False,hasWatts=True)
@@ -24,10 +26,13 @@ def threeDaysForward(date=1, maxDate=30, isSecondary=True, second=3.0):
                     poke_swsh_common.gotoDatetimeSettingFromHome(uart)
                     poke_swsh_common.initialAddOneDay(uart)
 
-                    date = date + 1
-                    if date > maxDate :
+                    date += 1
+                    if date > maxDate:
                         date = 1
-                        times = times - 1
+                        invalidDate = True
+                    else:
+                        times += 1
+                        invalidDate = False
                     
                     poke_swsh_common.returnGame(uart)
 
@@ -37,6 +42,7 @@ def threeDaysForward(date=1, maxDate=30, isSecondary=True, second=3.0):
                     poke_swsh_common.send(uart,'Button A', 0.1)
                     sleep(5)
                 else:
+                    times += 1
                     sleep(15)
             poke_swsh_common.closeGame(uart)
     except KeyboardInterrupt:

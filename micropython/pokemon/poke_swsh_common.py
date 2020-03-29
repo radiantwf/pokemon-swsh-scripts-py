@@ -65,6 +65,8 @@ def save(uart):
 def gotoRaid(uart, isOnline=True, hasWatts=False):
     if hasWatts:
         send(uart,'Button A', 0.1)
+        if isOnline:
+            sleep(1)
         sleep(0.8)
         send(uart,'Button A', 0.1)
         sleep(0.8)
