@@ -1,9 +1,9 @@
 import poke_swsh_common, datetime
 
-def raid(isSecondary=True,second=3):
+def run(isSecondary=True,delay=3):
     uart = poke_swsh_common.uart()
     try:
-        poke_swsh_common.delay(uart,second)
+        poke_swsh_common.delay(uart,delay)
         times = 0
         while True:
             poke_swsh_common.openGame(uart,isSecondary=isSecondary)

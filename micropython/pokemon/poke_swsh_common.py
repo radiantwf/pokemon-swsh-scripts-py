@@ -13,10 +13,10 @@ def uart():
     u = UART(2, baudrate=9600)
     return u
     
-def delay(uart,second=3.0):
-    print("[%s] %d秒延时" % (datetime.now(),second))
+def delay(uart,delay=3.0):
+    print("[%s] %d秒延时" % (datetime.now(),delay))
     send(uart,'Button LCLICK', 0.05)
-    sleep(second)
+    sleep(delay)
     send(uart,'Button LCLICK', 0.05)
     sleep(0.05)
 

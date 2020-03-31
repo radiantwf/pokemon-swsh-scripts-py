@@ -1,11 +1,11 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def getEggs(isSecondary=True,second=3):
+def run(isSecondary=True,delay=3):
     times = 0
     uart = poke_swsh_common.uart()
     try:
-        poke_swsh_common.delay(uart,second)
+        poke_swsh_common.delay(uart,delay)
         while True:
             if isSecondary and (times % 150 == 149):
                 poke_swsh_common.switchNetMode(uart)

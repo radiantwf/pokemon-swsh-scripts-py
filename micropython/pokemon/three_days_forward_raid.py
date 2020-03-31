@@ -1,10 +1,10 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def threeDaysForwardAndRaid(date=1, maxDate=30, isSecondary=True, second=3.0):
+def run(date=1, maxDate=30, isSecondary=True, delay=3.0):
     uart = poke_swsh_common.uart()
     try:
-        poke_swsh_common.delay(uart,second)
+        poke_swsh_common.delay(uart,delay)
 
         while(True):
             poke_swsh_common.openGame(uart,isSecondary)

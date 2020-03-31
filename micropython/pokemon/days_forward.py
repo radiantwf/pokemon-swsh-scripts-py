@@ -1,10 +1,10 @@
 import poke_swsh_common, datetime
 
-def daysForward(frames=1000,date=1,maxDate=30,second=3.0):
+def run(frames=1000,date=1,maxDate=30,delay=3.0):
     times = 0
     uart = poke_swsh_common.uart()
     try:
-        poke_swsh_common.delay(uart,second)
+        poke_swsh_common.delay(uart,delay)
 
         while(True):
             if times >= frames:
