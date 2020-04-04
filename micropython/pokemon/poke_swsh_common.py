@@ -72,7 +72,7 @@ def gotoRaid(uart, isOnline=True, hasWatts=False):
         sleep(0.8)
     send(uart,'Button A', 0.1)
     if isOnline:
-        sleep(5.5)
+        sleep(7)
     sleep(2.5) 
 
 # 设置团战密码2233
