@@ -41,7 +41,7 @@ def openGame(uart, isSecondary=False):
     if isSecondary:
         sleep(5)
     send(uart,'Button A', 0.1)
-    sleep(6.5)
+    sleep(7)
 
 # 关闭游戏
 def closeGame(uart):
@@ -121,7 +121,7 @@ def onlineModel(uart):
     send(uart,'Button A', 0.1)
     sleep(1)
     send(uart,'Button B', 0.1)
-    sleep(1)
+    sleep(2)
 
 # 切换到本地模式
 def localModel(uart):

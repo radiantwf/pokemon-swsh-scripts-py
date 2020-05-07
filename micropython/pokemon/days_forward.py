@@ -28,7 +28,7 @@ def run(frames=1000,date=1,maxDate=30,delay=3.0):
                     break
                 poke_swsh_common.followingAddOneDay(uart)
                 date += 1
-                if date > 30:
+                if date > maxDate:
                     date = 1
                 else:
                     times += 1
