@@ -1,3 +1,56 @@
+import time
+import ubinascii
+import machine
+from umqtt import MQTTClient
+
+# Publish test messages e.g. with:
+# mosquitto_pub -t foo_topic -m hello
+
+SERVER = "192.168.1.35"
+CLIENT_ID = ubinascii.hexlify(machine.unique_id())
+PORT=1833
+USER="wangfeng"
+PASSWORD="wf1984"
+TOPIC = b"pokemon"
+
+# Received messages from subscriptions will be delivered to this callback
+def sub_cb(topic, msg):
+    print((topic, msg))
+
+def main(server="localhost"):
+    c = MQTTClient(client_id=CLIENT_ID, server=SERVER, port=1883, user=USER, password=PASSWORD)
+    c.set_callback(sub_cb)
+    c.connect()
+    c.subscribe(TOPIC)
+    while True:
+        if True:
+            # Blocking wait for message
+            c.wait_msg()
+        else:
+            # Non-blocking wait for message
+            c.check_msg()
+            # Then need to sleep to avoid 100% CPU usage (in a real
+            # app other useful actions would be performed instead)
+            time.sleep(1)
+
+    c.disconnect()
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import ntptime
 ntptime.settime()
 
