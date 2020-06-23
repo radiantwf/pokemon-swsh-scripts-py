@@ -12,7 +12,7 @@ def run(isSecondary=True,delay=3):
             # 人物移动
             poke_swsh_common.send(uart,'LX MAX', 3)
             sleep(0.5)
-            poke_swsh_common.send(uart,'LX MIN', 3.07)
+            poke_swsh_common.send(uart,'LX MIN', 3)
             sleep(0.5)
             # 调整角度
             poke_swsh_common.send(uart,'LY MIN', 0.1)

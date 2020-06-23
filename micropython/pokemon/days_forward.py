@@ -1,6 +1,6 @@
 import poke_swsh_common, datetime
 
-def run(frames=1000,date=1,maxDate=30,delay=3.0):
+def run(frames=1000,date=1,maxDate=31,delay=3.0):
     times = 0
     uart = poke_swsh_common.uart()
     try:

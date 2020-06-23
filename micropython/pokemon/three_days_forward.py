@@ -1,7 +1,7 @@
 import poke_swsh_common, datetime
 from time import sleep
 
-def run(date=1, maxDate=30, isSecondary=True, delay=3.0):
+def run(date=1, maxDate=31, isSecondary=True, delay=3.0):
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart,delay)

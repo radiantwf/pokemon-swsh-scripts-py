@@ -64,10 +64,15 @@ import three_days_forward_raid
 three_days_forward_raid.run(date=1,maxDate=30,isSecondary=True)
 
 import get_eggs
-get_eggs.run(isSecondary=True)
+get_eggs.run(isSecondary=False)   #需要身上放满宝可梦
 
 import hatching_eggs
-hatching_eggs.run(initCol=0,maxBox=0,maxCol=5,eggCycle=20,flamebody=True,isSecondary=True,delay=3)
+hatching_eggs.run(initCol=0,maxBox=8,maxCol=1,eggCycle=20,flamebody=True,isSecondary=False,delay=3)
+
+import get_watts
+get_watts.run(date=1,maxDate=31)
+import get_watts_for_bug
+get_watts_for_bug.run(date=1,maxDate=31)
 
 import machine
 machine.reset()
