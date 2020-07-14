@@ -1,7 +1,7 @@
 import poke_swsh_common, datetime, math
 from time import sleep
 
-def run(initCol=0, maxBox=0, maxCol=5, eggCycle=20, flamebody=True, isSecondary=True, delay=3):
+def run(initCol=0, maxBox=0, maxCol=5, eggCycle=20, flamebody=True, isSecondary=False, delay=3):
     if flamebody:
         steps = math.ceil(257.0 * eggCycle / 2.0)
         cycles = math.ceil(eggCycle / 2.0)
@@ -145,7 +145,7 @@ def run(initCol=0, maxBox=0, maxCol=5, eggCycle=20, flamebody=True, isSecondary=
 
                 if box % 3 == 2:
                     # 保存进度
-                    poke_swsh_common.save(uart)
+                    # poke_swsh_common.save(uart)
                     if isSecondary:
                         poke_swsh_common.switchNetMode(uart)
 
