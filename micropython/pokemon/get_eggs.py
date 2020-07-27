@@ -10,7 +10,7 @@ def run(isSecondary=False,delay=3):
             if isSecondary and (times % 150 == 149):
                 poke_swsh_common.switchNetMode(uart)
                 
-            for times in range(0, 3): 
+            for i in range(0, 3): 
                 # 人物移动
                 poke_swsh_common.send(uart,'LX MIN', 1.7)
                 sleep(0.5)
