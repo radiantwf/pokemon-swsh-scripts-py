@@ -9,14 +9,15 @@ def run(isSecondary=False,delay=3):
         while True:
             if isSecondary and (times % 150 == 149):
                 poke_swsh_common.switchNetMode(uart)
-            # 人物移动
-            poke_swsh_common.send(uart,'LX MAX', 3)
-            sleep(0.5)
-            poke_swsh_common.send(uart,'LX MIN', 3.07)
-            sleep(0.5)
-            # 调整角度
-            poke_swsh_common.send(uart,'LY MIN', 0.1)
-            sleep(0.5)
+                
+            for times in range(0, 3): 
+                # 人物移动
+                poke_swsh_common.send(uart,'LX MIN', 1.7)
+                sleep(0.5)
+                poke_swsh_common.send(uart,'LX MAX', 1.8)
+                # 调整角度
+                poke_swsh_common.send(uart,'LY MIN', 0.5)
+                sleep(0.1)
 
             # 取蛋
             poke_swsh_common.send(uart,'Button A', 0.1)
