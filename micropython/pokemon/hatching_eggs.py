@@ -130,7 +130,7 @@ def run(initCol=0, maxBox=0, maxCol=5, eggCycle=20, flamebody=True, isSecondary=
                 else:
                     poke_swsh_common.send(uart,'LX MIN', 0.3)
                 sleep(0.5)
-                for delay in range(0, 16): 
+                for delay in range(0, 18): 
                     poke_swsh_common.send(uart,'Button B', 0.1)
                     sleep(1)
 

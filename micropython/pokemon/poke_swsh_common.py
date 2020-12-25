@@ -75,7 +75,7 @@ def gotoRaid(uart, isOnline=True, hasWatts=False):
         sleep(7)
     sleep(2.5) 
 
-# 设置团战密码2233
+# 设置团战密码22223333
 def setRaidPassword(uart):
     send(uart,'Button START', 0.1)
     sleep(1)
@@ -86,8 +86,16 @@ def setRaidPassword(uart):
     sleep(0.4)
     send(uart,'Button A', 0.1)
     sleep(0.4)
+    send(uart,'Button A', 0.1)
+    sleep(0.4)
+    send(uart,'Button A', 0.1)
+    sleep(0.4)
     send(uart,'LX MAX', 0.1)
     sleep(0.5)
+    send(uart,'Button A', 0.1)
+    sleep(0.4)
+    send(uart,'Button A', 0.1)
+    sleep(0.4)
     send(uart,'Button A', 0.1)
     sleep(0.4)
     send(uart,'Button A', 0.1)
@@ -157,6 +165,8 @@ def switchNetMode(uart):
 def gotoDatetimeSettingFromHome(uart):
     # 进入设置界面
     send(uart,'LY MAX', 0.05)
+    sleep(0.05)
+    send(uart,'LX MAX', 0.05)
     sleep(0.05)
     send(uart,'LX MAX', 0.05)
     sleep(0.05)
