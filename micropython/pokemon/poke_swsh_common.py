@@ -12,6 +12,8 @@ def send(uart, msg, duration=0, debug=False):
 
 
 def uart():
+    import datetime
+    datetime.ntpSync()
     from machine import Pin
     u = UART(1, baudrate=9600, tx=17, rx=16)
     return u
@@ -281,3 +283,23 @@ def followingAddOneDay(uart):
     sleep(0.05)
     send(uart, 'Button A', 0.05)
     sleep(0.12)
+
+
+# 进入战斗并且检查闪（必须使用不闪逃跑特性高敏精灵）
+def enterBattleAndCheckShiny(uart, delay=0):
+    sleep(delay)
+    sleep(7.5)
+    send(uart, 'LY MAX', 0.1)
+    sleep(0.1)
+    send(uart, 'LY MAX', 0.1)
+    sleep(1.6)
+    send(uart, 'LY MAX', 0.1)
+    sleep(0.5)
+    send(uart, 'Button A', 0.1)
+    sleep(1.5)
+    send(uart, 'Button A', 0.1)
+    sleep(0.8)
+    send(uart, 'LY MAX', 0.1)
+    sleep(0.3)
+    send(uart, 'Button A', 0.1)
+    sleep(5)
