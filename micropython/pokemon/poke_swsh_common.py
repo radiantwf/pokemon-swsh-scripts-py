@@ -20,11 +20,18 @@ def uart():
 
 
 def delay(uart, delay=3.0):
+    if delay == 0:
+        return
     print("[%s] %d秒延时" % (datetime.now(), delay))
     send(uart, 'Button LCLICK', 0.05)
     sleep(delay)
     send(uart, 'Button LCLICK', 0.05)
     sleep(0.05)
+
+
+def script_start(uart):
+    closeGame(uart)
+    openGame(uart, isSecondary=True)
 
 # 进入Home界面
 
@@ -284,8 +291,9 @@ def followingAddOneDay(uart):
     send(uart, 'Button A', 0.05)
     sleep(0.12)
 
-
 # 进入战斗并且检查闪（必须使用不闪逃跑特性高敏精灵）
+
+
 def enterBattleAndCheckShiny(uart, delay=0):
     sleep(delay)
     sleep(7.5)
