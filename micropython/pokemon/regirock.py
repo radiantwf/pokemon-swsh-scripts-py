@@ -2,13 +2,13 @@ import poke_swsh_common
 from time import sleep
 
 
-def run(script_start=False, delay=3):
+def run(restart_game=False, delay=3):
     uart = poke_swsh_common.uart()
     try:
         poke_swsh_common.delay(uart, delay)
         sleep(1)
-        if script_start:
-            poke_swsh_common.script_start(uart)
+        if restart_game:
+            poke_swsh_common.restart_game(uart)
         while True:
             poke_swsh_common.send(uart, 'Button A', 0.1)
             sleep(1)

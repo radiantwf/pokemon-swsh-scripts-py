@@ -29,7 +29,7 @@ def delay(uart, delay=3.0):
     sleep(0.05)
 
 
-def script_start(uart):
+def restart_game(uart):
     closeGame(uart)
     openGame(uart, isSecondary=True)
 
