@@ -1,6 +1,6 @@
 from machine import UART
 from time import sleep
-import datetime
+import customize.datetime
 
 
 def send(uart, msg, duration=0, debug=False):
@@ -8,12 +8,12 @@ def send(uart, msg, duration=0, debug=False):
     sleep(duration)
     uart.write(b'RELEASE\r\n')
     if debug:
-        print("[%s] %s" % (datetime.now(), msg))
+        print("[%s] %s" % (customize.datetime.now(), msg))
 
 
 def uart():
-    import datetime
-    datetime.ntpSync()
+    import customize.datetime
+    customize.datetime.ntpSync()
     from machine import Pin
     u = UART(1, baudrate=9600, tx=17, rx=16)
     return u
@@ -22,7 +22,7 @@ def uart():
 def delay(uart, delay=3.0):
     if delay == 0:
         return
-    print("[%s] %d秒延时" % (datetime.now(), delay))
+    print("[%s] %d秒延时" % (customize.datetime.now(), delay))
     send(uart, 'Button LCLICK', 0.05)
     sleep(delay)
     send(uart, 'Button LCLICK', 0.05)
@@ -205,7 +205,7 @@ def switchNetMode(uart):
 # 进入时间设置界面
 
 
-def gotoDatetimeSettingFromHome(uart):
+def datetimeSettingFromHome(uart):
     # 进入设置界面
     send(uart, 'LY MAX', 0.05)
     sleep(0.05)
