@@ -11,9 +11,8 @@ RUN apt-get update && apt-get -y install \
 
 WORKDIR /root
 # it's taking a long time
-RUN git clone https://github.com/adafruit/circuitpython.git && \
+RUN git clone -b 7.3.3 --depth=1 https://github.com/adafruit/circuitpython.git && \
 	cd circuitpython && \
-	git checkout 7.3.3 && \
 	make fetch-submodules
 
 WORKDIR /root/circuitpython/ports/espressif
