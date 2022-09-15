@@ -1,3 +1,4 @@
 import usb_hid
+import hid.device.hori
 
-usb_hid.enable((Device.KEYBOARD), boot_device=1)
+usb_hid.enable((hid.device.hori.HoriPadS,))

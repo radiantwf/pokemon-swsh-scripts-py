@@ -23,7 +23,8 @@ _HORIPAD_S_DESCRIPTOR = bytes((
     0x25, 0x07,             # 8 valid HAT states, sending 0x08 = nothing pressed
     0x46, 0x3B, 0x01,       # HAT "rotation"
     0x75, 0x04,             # 4 bits per report field
-    0x95, 0x01,             # 1 report field (a nibble containing entire HAT state)
+    # 1 report field (a nibble containing entire HAT state)
+    0x95, 0x01,
     0x65, 0x14,             # unit degrees
     0x09, 0x39,             # Hat switch (section 4.3)
     0x81, 0x42,             # Variable input, null state
@@ -38,7 +39,8 @@ _HORIPAD_S_DESCRIPTOR = bytes((
     0x09, 0x32,             # Z (right X)
     0x09, 0x35,             # Rz (right Y)
     0x75, 0x08,             # 1 byte per report field
-    0x95, 0x04,             # 4 report fields (left X, left Y, right X, right Y)
+    # 4 report fields (left X, left Y, right X, right Y)
+    0x95, 0x04,
     0x81, 0x02,             # Variable input
     0x75, 0x08,             # 1 byte per report field
     0x95, 0x01,             # 1 report field
@@ -46,12 +48,12 @@ _HORIPAD_S_DESCRIPTOR = bytes((
     0xC0,
 ))
 
-gamepad = usb_hid.Device(
+HoriPadS = usb_hid.Device(
     report_descriptor=_HORIPAD_S_DESCRIPTOR,
     usage_page=0x01,           # Generic Desktop Control
     usage=0x05,                # Gamepad
     report_ids=(4,),           # Descriptor uses report ID 4.
-    in_report_lengths=(6,),    # This gamepad sends 6 bytes in its report.
+    in_report_lengths=(8,),    # This gamepad sends 6 bytes in its report.
     out_report_lengths=(0,),   # It does not receive any reports.
 )
 
