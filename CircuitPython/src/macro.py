@@ -1,3 +1,6 @@
+import os
+
+
 class Action_Node(object):
     def __init__(self, action_line: str):
         self._head: Action_Node = self
@@ -37,3 +40,35 @@ class Action_Process(object):
                 return node
         self._current = self._current._next
         return node
+
+
+S_IFDIR = const(16384)
+
+
+def get_marcos(base="macros"):
+    ret = []
+    for p in os.listdir(base):
+        path = "{}/{}".format(base, p)
+        if p.startswith('.'):
+            continue
+        elif p.lower().endswith(".m"):
+            ret.append(path)
+        elif (os.stat(path)[0] & S_IFDIR):
+            ret.extend(get_marcos(path))
+    return ret
+
+
+macros = get_marcos()
+for macro in macros:
+    f = open(macro, "rt")
+    while True:
+        try:
+            row = f.readline()
+            print(row.strip())
+            break
+        except:
+            break
+    f.close()
+
+
+f = open("/macros/common.macro", "rt")
