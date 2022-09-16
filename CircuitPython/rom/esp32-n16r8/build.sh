@@ -1,3 +1,3 @@
 #!/bin/bash
 docker build . -t circuitpython
-docker run -it --rm -v $(PWD)/build:/root/build circuitpython
+docker run -d --rm -v $(PWD)/build:/root/build circuitpython
