@@ -158,7 +158,6 @@ class JoyStick:
 
     def send(self,  input_line: str = ""):
         input = JoyStickInput(input_line)
-        print(''.join(['%02x ' % b for b in input.buffer()]))
         self._joystick_device.send_report(input.buffer())
 
     def release(self):
