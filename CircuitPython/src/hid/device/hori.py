@@ -52,7 +52,7 @@ HoriPadS = usb_hid.Device(
     report_descriptor=_HORIPAD_S_DESCRIPTOR,
     usage_page=0x01,           # Generic Desktop Control
     usage=0x05,                # Gamepad
-    report_ids=(4,),           # Descriptor uses report ID 4.
+    report_ids=(0,),           # Descriptor uses report ID 4.
     in_report_lengths=(8,),    # This gamepad sends 6 bytes in its report.
     out_report_lengths=(0,),   # It does not receive any reports.
 )
