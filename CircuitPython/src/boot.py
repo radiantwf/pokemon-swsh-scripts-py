@@ -1,5 +1,7 @@
 import usb_hid
 import hid.device.hori
+import wifi
+import customize.datetime
 
 usb_hid.enable((hid.device.hori.HoriPadS,))
 
