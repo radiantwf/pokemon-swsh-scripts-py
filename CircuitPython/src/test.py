@@ -46,7 +46,7 @@ time.sleep(0.1)
 joystick.release()
 time.sleep(1)
 
-line = "A"
+line = "A|B|X|Y"
 print(line)
 joystick.send(line)
 time.sleep(0.1)
