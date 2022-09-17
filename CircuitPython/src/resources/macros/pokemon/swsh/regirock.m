@@ -1,5 +1,5 @@
 --雷吉洛克/雷吉斯奇鲁--
-[regirock]
+<regirock>
 {
 	A:0.1
 	1
@@ -7,7 +7,7 @@
 	1.2
 	A:0.1
 	7
-	(pokemon.swsh.common.battle_check_shiny)
+	[pokemon.swsh.common.battle_check_shiny]
 	A:0.1
 	0.5
 	# 走到左上角墙角
