@@ -2,7 +2,6 @@ import time
 import macros
 
 time.sleep(15)
-macros.run("pokemon.wakeup_joystick", False)
 macros.run("pokemon.swsh.regirock.regirock", True)
 
 # import hid.joystick

@@ -18,7 +18,7 @@ def run(name: str, cycle: bool = False):
                 break
         if not cycle:
             break
-        act.reset()
+        act.do_cycle()
 
 
 def _get_action(name: str) -> action.Action:

@@ -1,13 +1,15 @@
 --雷吉洛克/雷吉斯奇鲁--
 <regirock>
 {
+	[common.wakeup_joystick]
 	[pokemon.swsh.common.restart_game]
+	body:
 	A:0.1
 	1
 	A:0.1
 	1.2
 	A:0.1
-	7
+	6.5
 	[pokemon.swsh.common.battle_check_shiny]
 	A:0.1
 	0.5

@@ -9,6 +9,9 @@ class Action(object):
         self._current = self._head
         self._current_node_link_cycle_times = 1
         self._waiting_node = []
+        self._body = self._head
+        self._body_current_node_link_cycle_times = 1
+        self._body_waiting_node = []
 
     def _jump_node(self):
         action_line = self._current.action
@@ -59,6 +62,17 @@ class Action(object):
         while self._jump_node():
             pass
         line = self._current.action
+        if line == "body:":
+            self._current = self._current.next
+            self._return_jump()
+            if self._current == None:
+                return None, True
+            line = self._current.action
+            self._body = self._current
+            self._body_current_node_link_cycle_times = self._current_node_link_cycle_times
+            self._body_waiting_node = []
+            for row in self._waiting_node:
+                self._body_waiting_node.append(row)
         self._current = self._current.next
         self._return_jump()
         if self._current == None:
@@ -69,3 +83,10 @@ class Action(object):
         self._current = self._head
         self._current_node_link_cycle_times = 1
         self._waiting_node = []
+
+    def do_cycle(self):
+        self._current = self._body
+        self._current_node_link_cycle_times = self._body_current_node_link_cycle_times
+        self._waiting_node = []
+        for row in self._body_waiting_node:
+            self._waiting_node.append(row)
