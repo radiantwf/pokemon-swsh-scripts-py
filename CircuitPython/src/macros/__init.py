@@ -1,2 +1,0 @@
-import config
-config.Config()

@@ -1,3 +1,10 @@
+--唤醒手柄--
+<wakeup_joystick>
+LPress:0.1
+1
+LPress:0.1
+3
+
 --返回主界面--
 <return_home>
 Home:0.1

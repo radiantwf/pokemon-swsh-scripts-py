@@ -1,6 +1,7 @@
 --雷吉洛克/雷吉斯奇鲁--
 <regirock>
 {
+	[pokemon.swsh.common.restart_game]
 	A:0.1
 	1
 	A:0.1
@@ -41,4 +42,4 @@
 	0.2
 	LStick@0,-128:1
 	0.2
-}*n
+}

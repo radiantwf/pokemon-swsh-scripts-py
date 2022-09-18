@@ -156,9 +156,39 @@ class JoyStick:
             time.sleep(1)
             self.release()
 
-    def send(self,  input_line: str = ""):
+    def _send(self,  input_line: str = ""):
         input = JoyStickInput(input_line)
         self._joystick_device.send_report(input.buffer())
 
     def release(self):
-        self.send("")
+        self._send("")
+
+    def key_press(self,  input_line: str = "", keep: float = 0.01):
+        if keep < 0:
+            keep = 0.01
+        while keep > 1:
+            self._send(input_line)
+            time.sleep(1)
+            keep -= 1
+        self._send(input_line)
+        time.sleep(keep)
+        self.release()
+
+    def do_action(self,  action_line: str = ""):
+        splits = action_line.split(":")
+        if len(splits) > 2:
+            self.release()
+            return
+        if len(splits) == 1:
+            try:
+                keep = float(splits[0])
+                self.key_press("", keep)
+            except:
+                self.key_press(splits[0], 0.1)
+        else:
+            keep = 0.1
+            try:
+                keep = float(splits[1])
+            except:
+                pass
+            self.key_press(splits[0], keep)

@@ -28,7 +28,7 @@ class Config(object):
                 p = key
             else:
                 p = path + "." + key
-            v = d[key]
+            v = d.get(key)
             if type(v) is bool:
                 ret[p] = v
             elif type(v) is dict:
@@ -42,10 +42,10 @@ class Config(object):
         if running_condition == None or running_condition == "":
             return True
         else:
-            v = self._config["running."+running_condition]
+            v = self._config.get("running."+running_condition)
             if type(v) is bool:
                 return v
-            v = self._config[running_condition]
+            v = self._config.get(running_condition)
             if type(v) is bool:
                 return v
         return False
