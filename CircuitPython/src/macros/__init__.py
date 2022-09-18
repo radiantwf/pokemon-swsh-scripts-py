@@ -5,7 +5,7 @@ import usb_hid
 joystick = hid.joystick.JoyStick(usb_hid.devices)
 
 
-def run(name: str, cycle: bool = False):
+async def run(name: str, cycle: bool = False):
     act = _get_action(name)
     if act == None:
         return
@@ -13,7 +13,7 @@ def run(name: str, cycle: bool = False):
         while True:
             ret = act.pop()
             # print(ret[0])
-            joystick.do_action(ret[0])
+            await joystick.do_action(ret[0])
             if ret[1]:
                 break
         if not cycle:
